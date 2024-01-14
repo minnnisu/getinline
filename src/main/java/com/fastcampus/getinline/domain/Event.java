@@ -1,5 +1,6 @@
 package com.fastcampus.getinline.domain;
 
+import com.fastcampus.getinline.constant.ErrorCode;
 import com.fastcampus.getinline.constant.EventStatus;
 import lombok.Data;
 
