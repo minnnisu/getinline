@@ -4,7 +4,7 @@ import com.fastcampus.getinline.constant.ErrorCode;
 import lombok.Getter;
 
 @Getter
-public class GeneralException extends RuntimeException{
+public class GeneralException extends RuntimeException {
 
     private final ErrorCode errorCode;
 
@@ -47,4 +47,5 @@ public class GeneralException extends RuntimeException{
         super(errorCode.getMessage(), cause, enableSuppression, writableStackTrace);
         this.errorCode = ErrorCode.INTERNAL_ERROR;
     }
+
 }

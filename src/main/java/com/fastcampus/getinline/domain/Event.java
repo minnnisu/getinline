@@ -1,25 +1,23 @@
 package com.fastcampus.getinline.domain;
 
-import com.fastcampus.getinline.constant.ErrorCode;
 import com.fastcampus.getinline.constant.EventStatus;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
-public class Event  {
+public class Event {
     private Long id;
 
     private Long placeId;
     private String eventName;
     private EventStatus eventStatus;
-    private LocalDateTime eventStatDateTime;
-    private LocalDateTime eventEndDateTime;
+    private LocalDateTime eventStartDatetime;
+    private LocalDateTime eventEndDatetime;
     private Integer currentNumberOfPeople;
     private Integer capacity;
     private String memo;
 
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-
 }
