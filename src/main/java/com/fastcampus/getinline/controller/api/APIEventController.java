@@ -11,13 +11,16 @@ import jakarta.validation.constraints.Size;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@RequestMapping("/api")
+@Validated
 @RequiredArgsConstructor
+@RequestMapping("/api")
 @RestController
 public class APIEventController {
 
@@ -72,6 +75,5 @@ public class APIEventController {
 
         return APIDataResponse.of(Boolean.toString(result));
     }
-
 
 }
