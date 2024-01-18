@@ -30,7 +30,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // TODO: 주석 처리된 테스트 케이스([API][POST] 이벤트 생성 - 잘못된 정보 입력, [API][PUT] 이벤트 변경 - 잘못된 입력)의 코드 알맞게 수정 필요
 @WebMvcTest(APIEventController.class)
 class APIEventControllerTest {
-
     private final MockMvc mvc;
     private final ObjectMapper mapper;
 
@@ -105,6 +104,7 @@ class APIEventControllerTest {
         // Given
         EventResponse eventResponse = EventResponse.of(
                 1L,
+                1L,
                 "오후 운동",
                 EventStatus.OPENED,
                 LocalDateTime.of(2021, 1, 1, 13, 0, 0),
@@ -135,6 +135,7 @@ class APIEventControllerTest {
     void givenWrongEvent_whenCreatingAnEvent_thenReturnsFailedStandardResponse() throws Exception {
         // Given
         EventResponse eventResponse = EventResponse.of(
+                1L,
                 0L,
                 "  ",
                 null,
@@ -152,11 +153,10 @@ class APIEventControllerTest {
                                 .content(mapper.writeValueAsString(eventResponse))
                 )
                 .andExpect(status().isBadRequest())
-                .andExpect(content().contentTypeCompatibleWith(new MediaType("application", "*+json")))
-//                .andExpect(jsonPath("$.success").value(false))
-//                .andExpect(jsonPath("$.errorCode").value(ErrorCode.SPRING_BAD_REQUEST.getCode()))
-//                .andExpect(jsonPath("$.message").value(containsString(ErrorCode.SPRING_BAD_REQUEST.getMessage())))
-        ;
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.success").value(false))
+                .andExpect(jsonPath("$.errorCode").value(ErrorCode.SPRING_BAD_REQUEST.getCode()))
+                .andExpect(jsonPath("$.message").value(containsString(ErrorCode.SPRING_BAD_REQUEST.getMessage())));
         then(eventService).shouldHaveNoInteractions();
     }
 
@@ -230,6 +230,7 @@ class APIEventControllerTest {
         // Given
         long eventId = 1L;
         EventResponse eventResponse = EventResponse.of(
+                eventId,
                 1L,
                 "오후 운동",
                 EventStatus.OPENED,
@@ -262,6 +263,7 @@ class APIEventControllerTest {
         // Given
         long eventId = 0L;
         EventResponse eventResponse = EventResponse.of(
+                eventId,
                 0L,
                 "  ",
                 null,
@@ -279,11 +281,10 @@ class APIEventControllerTest {
                                 .content(mapper.writeValueAsString(eventResponse))
                 )
                 .andExpect(status().isBadRequest())
-                .andExpect(content().contentTypeCompatibleWith(new MediaType("application", "*+json")))
-//                .andExpect(jsonPath("$.success").value(false))
-//                .andExpect(jsonPath("$.errorCode").value(ErrorCode.VALIDATION_ERROR.getCode()))
-//                .andExpect(jsonPath("$.message").value(containsString(ErrorCode.VALIDATION_ERROR.getMessage())))
-        ;
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.success").value(false))
+                .andExpect(jsonPath("$.errorCode").value(ErrorCode.SPRING_BAD_REQUEST.getCode()))
+                .andExpect(jsonPath("$.message").value(containsString(ErrorCode.SPRING_BAD_REQUEST.getMessage())));
         then(eventService).shouldHaveNoInteractions();
     }
 
@@ -325,6 +326,7 @@ class APIEventControllerTest {
     private EventDTO createEventDTO() {
         return EventDTO.of(
                 1L,
+                1L,
                 "오후 운동",
                 EventStatus.OPENED,
                 LocalDateTime.of(2021, 1, 1, 13, 0, 0),
@@ -336,5 +338,4 @@ class APIEventControllerTest {
                 LocalDateTime.now()
         );
     }
-
 }
