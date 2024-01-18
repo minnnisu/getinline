@@ -21,7 +21,7 @@ public class ThymeleafConfig {
         return defaultTemplateResolver;
     }
 
-    
+
     @Getter
     @RequiredArgsConstructor
     @ConfigurationProperties("spring.thymeleaf3")
