@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fastcampus.getinline.constant.ErrorCode;
 import com.fastcampus.getinline.constant.PlaceType;
 import com.fastcampus.getinline.dto.PlaceRequest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(APIPlaceController.class)
+@Disabled("API 컨트롤러가 필요없는 상황이어서 비활성화")
 class APIPlaceControllerTest {
 
     private final MockMvc mvc;

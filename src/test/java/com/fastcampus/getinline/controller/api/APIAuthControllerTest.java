@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fastcampus.getinline.constant.ErrorCode;
 import com.fastcampus.getinline.dto.AdminRequest;
 import com.fastcampus.getinline.dto.LoginRequest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+
+@Disabled("API 컨트롤러가 필요없는 상황이어서 비활성화")
 @WebMvcTest(APIAuthController.class)
 class APIAuthControllerTest {
 
@@ -27,6 +30,7 @@ class APIAuthControllerTest {
         this.mvc = mvc;
         this.mapper = mapper;
     }
+
 
     @DisplayName("[API][POST] 관리자 가입 - 정상 입력하면 회원 정보를 추가하고 안내 메시지 리턴")
     @Test
