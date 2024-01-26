@@ -3,7 +3,7 @@ package com.fastcampus.getinline.controller.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fastcampus.getinline.constant.ErrorCode;
 import com.fastcampus.getinline.constant.EventStatus;
-import com.fastcampus.getinline.dto.EventDTO;
+import com.fastcampus.getinline.dto.EventDto;
 import com.fastcampus.getinline.dto.EventResponse;
 import com.fastcampus.getinline.service.EventService;
 import org.junit.jupiter.api.Disabled;
@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 // TODO: 주석 처리된 테스트 케이스([API][POST] 이벤트 생성 - 잘못된 정보 입력, [API][PUT] 이벤트 변경 - 잘못된 입력)의 코드 알맞게 수정 필요
-
+@Deprecated
 @Disabled("API 컨트롤러가 필요없는 상황이어서 비활성화")
 @WebMvcTest(APIEventController.class)
 class APIEventControllerTest {
@@ -326,8 +326,8 @@ class APIEventControllerTest {
     }
 
 
-    private EventDTO createEventDTO() {
-        return EventDTO.of(
+    private EventDto createEventDTO() {
+        return EventDto.of(
                 1L,
                 1L,
                 "오후 운동",

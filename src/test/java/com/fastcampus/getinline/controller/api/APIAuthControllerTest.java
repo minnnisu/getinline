@@ -16,6 +16,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
+@Deprecated
 @Disabled("API 컨트롤러가 필요없는 상황이어서 비활성화")
 @WebMvcTest(APIAuthController.class)
 class APIAuthControllerTest {
