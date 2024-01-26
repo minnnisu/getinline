@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class APIDataResponseTest {
+class ApiDataResponseTest {
 
     @DisplayName("문자열 데이터가 주어지면, 표준 성공 응답을 생성한다.")
     @Test

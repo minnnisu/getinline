@@ -5,8 +5,6 @@ import com.fastcampus.getinline.dto.AdminRequest;
 import com.fastcampus.getinline.dto.LoginRequest;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 
 /**
@@ -19,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Deprecated
 //@RequestMapping("/api")
 //@RestController
-public class APIAuthController {
+public class ApiAuthController {
 
     @PostMapping("/sign-up")
     public APIDataResponse<String> signUp(@RequestBody AdminRequest adminRequest) {

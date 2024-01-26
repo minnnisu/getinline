@@ -21,12 +21,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class APIExceptionHandlerTest {
 
-    private APIExceptionHandler sut;
+    private ApiExceptionHandler sut;
     private WebRequest webRequest;
 
     @BeforeEach
     void setUp() {
-        sut = new APIExceptionHandler();
+        sut = new ApiExceptionHandler();
         webRequest = new DispatcherServletWebRequest(new MockHttpServletRequest());
     }
 

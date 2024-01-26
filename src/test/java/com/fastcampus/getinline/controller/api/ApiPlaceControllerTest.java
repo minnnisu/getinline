@@ -16,14 +16,14 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @Deprecated
-@WebMvcTest(APIPlaceController.class)
+@WebMvcTest(ApiPlaceController.class)
 @Disabled("API 컨트롤러가 필요없는 상황이어서 비활성화")
-class APIPlaceControllerTest {
+class ApiPlaceControllerTest {
 
     private final MockMvc mvc;
     private final ObjectMapper mapper;
 
-    public APIPlaceControllerTest(
+    public ApiPlaceControllerTest(
             @Autowired MockMvc mvc,
             @Autowired ObjectMapper mapper
             ) {
